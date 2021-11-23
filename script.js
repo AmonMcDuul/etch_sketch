@@ -26,10 +26,10 @@ function createGrid(col, rows){
 }
 createGrid(20,20);
 
-function reSetButton(){
+function resetButton(){
     btnReset.textContent = 'Reset'
     btnReset.addEventListener('click', () => {
-        reSet();
+        reset();
         createGrid(20,20);
         blackColour();
         grayColour();
@@ -37,20 +37,20 @@ function reSetButton(){
     })
     configContainer.appendChild(btnReset).classList.add('btn')
 }
-reSetButton();
+resetButton();
 
 function gridSize(){
     btnGridSize.textContent = 'Grid size'
     btnGridSize.addEventListener('click', () => {
         let matrixSize = prompt('Size: ')
         if (matrixSize === null || matrixSize < 1){
-            reSet();
+            reset();
             createGrid(30,30);
             blackColour();
             grayColour();
             rgbColour();         
         } else {
-            reSet();
+            reset();
             createGrid(matrixSize,matrixSize);
             blackColour();
             grayColour();
@@ -102,7 +102,7 @@ function rgbColour(){
 } 
 rgbColour();
 
-function reSet(){
+function reset(){
     const matrix = container.querySelectorAll('.box')
     matrix.forEach(box =>{
         box.remove();
