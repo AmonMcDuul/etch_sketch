@@ -29,7 +29,7 @@ createGrid(20,20);
 function resetButton(){
     btnReset.textContent = 'Reset'
     btnReset.addEventListener('click', () => {
-        reSet();
+        reset();
         createGrid(20,20);
         blackColour();
         grayColour();
