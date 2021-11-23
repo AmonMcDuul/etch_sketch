@@ -14,7 +14,7 @@ window.onload = () => {
         box.style.background = 'black'
     }))
 }
-
+ 
 function createGrid(col, rows){
     for(let i = 0; i < (col*rows); i++){
         const div = document.createElement('div')
