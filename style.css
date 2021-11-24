@@ -52,7 +52,6 @@ main h1 {
 .config{
   width: 400px;
   position: relative;
-  padding: 3em 0;
   bottom: 10%;
   display: flex;
   justify-content: space-around;
