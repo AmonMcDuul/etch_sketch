@@ -2,6 +2,8 @@ const container = document.querySelector('.container')
 const btnBlack = document.createElement('button')
 const btnGray = document.createElement('button')
 const btnColour = document.createElement('button')
+const btnErase = document.createElement('button')
+const btnInvis = document.createElement('button')
 const btnReset = document.createElement('config')
 const btnGridSize = document.createElement('config')
 const main = document.querySelector('.main')
@@ -31,9 +33,11 @@ function resetButton(){
     btnReset.addEventListener('click', () => {
         reset();
         createGrid(20,20);
+        invisColour();
         blackColour();
         grayColour();
         rgbColour();
+        removeColour(); 
     })
     configContainer.appendChild(btnReset).classList.add('btn')
 }
@@ -46,20 +50,37 @@ function gridSize(){
         if (matrixSize === null || matrixSize < 1){
             reset();
             createGrid(30,30);
+            invisColour();
             blackColour();
             grayColour();
-            rgbColour();         
+            rgbColour();      
+            removeColour();   
         } else {
             reset();
             createGrid(matrixSize,matrixSize);
+            invisColour();
             blackColour();
             grayColour();
             rgbColour();
+            removeColour(); 
         }
     })
     configContainer.appendChild(btnGridSize).classList.add('btn')
 }
 gridSize();
+
+function invisColour(){
+    const matrix = container.querySelectorAll('.box')
+    btnInvis.textContent = 'Invisible'
+    btnInvis.addEventListener('click', () => {
+        matrix.forEach(box => box.addEventListener('mouseover', () => {
+            box.style.background = 'lightskyblue'
+            box.style.border = 'none'
+        }))
+    })
+    configContainer.appendChild(btnInvis).classList.add('btn')
+} 
+invisColour();
 
 
 function blackColour(){
@@ -101,6 +122,18 @@ function rgbColour(){
     buttonsContainer.appendChild(btnColour).classList.add('btn')
 } 
 rgbColour();
+
+function removeColour(){
+    const matrix = container.querySelectorAll('.box')
+    btnErase.textContent = 'Eraser'
+    btnErase.addEventListener('click', () => {
+        matrix.forEach(box => box.addEventListener('mouseover', () => {
+            box.style.background = 'transparent'
+        }))
+    })
+    buttonsContainer.appendChild(btnErase).classList.add('btn')
+} 
+removeColour();
 
 function reset(){
     const matrix = container.querySelectorAll('.box')

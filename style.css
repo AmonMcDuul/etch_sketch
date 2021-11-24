@@ -38,7 +38,7 @@ main h1 {
 
 .btn{
   padding: 1em 3em;
-  background: gray;
+  background: rgb(161, 161, 161);
   box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.5);
   border: none;
   font-weight: bold;
@@ -50,7 +50,7 @@ main h1 {
 }
 
 .config{
-  width: 400px;
+  width: 600px;
   position: relative;
   bottom: 10%;
   display: flex;
